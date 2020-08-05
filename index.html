@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Job Listings</title>
+  </head>
+
+  <body>
+    <div class="page-top"></div>
+    <div class="page-bottom">
+      <div class="filter-list">
+        <h2 class='filter-title'>Filter Jobs</h2>
+        <div>
+          <button>All Jobs</button>
+        </div>
+        <div>
+          <button>Role</button>
+          <form>
+            <input
+              type="checkbox"
+              id="Frontend"
+              name="Frontend"
+              value="Frontend"
+            />
+            Frontend
+            <input
+              type="checkbox"
+              id="Backend"
+              name="Backend"
+              value="Backend"
+            />
+            Backend
+            <input
+              type="checkbox"
+              id="Fullstack"
+              name="Fullstack"
+              value="Fullstack"
+            />
+            Fullstack
+          </form>
+        </div>
+        <div>
+          <button>Level</button>
+          <form>
+            <input type="checkbox" id="Junior" name="Junior" value="Junior" />
+            Junior
+            <input
+              type="checkbox"
+              id="Midweight"
+              name="Midweight"
+              value="Midweight"
+            />
+            Midweight
+            <input type="checkbox" id="Senior" name="Senior" value="Senior" />
+            Senior
+          </form>
+        </div>
+        <div>
+          <button>Languages</button>
+          <form>
+            <input type="checkbox" id="Python" name="Python" value="Python" />
+            Python
+            <input type="checkbox" id="Ruby" name="Ruby" value="Ruby" />
+            Ruby
+            <input
+              type="checkbox"
+              id="JavaScript"
+              name="JavaScript"
+              value="JavaScript"
+            />
+            JavaScript
+            <input type="checkbox" id="HTML" name="HTML" value="HTML" />
+            HTML
+            <input type="checkbox" id="CSS" name="CSS" value="CSS" />
+            CSS
+          </form>
+        </div>
+        <div>
+          <button>Tools</button>
+          <form>
+            <input
+              type="checkbox"
+              id="React"
+              name="React"
+              value="React"
+            />
+            React
+            <input type="checkbox" id="Sass" name="Sass" value="Sass" />
+            Sass
+            <input type="checkbox" id="Vue" name="Vue" value="Vue" />
+            Vue
+            <input
+              type="checkbox"
+              id="vehicle1"
+              name="vehicle1"
+              value="Django"
+            />
+            Django
+            <input type="checkbox" id="RoR" name="RoR" value="RoR" />
+            RoR (Ruby on Rails)
+          </form>
+        </div>
+      </div>
+      <ul class="job-listings-container">
+        <!-- <li class="job-listing">
+          <img src="" alt="company logo" />
+          <div>
+          <p class="job-listing__company">company</p>
+          <div class="new">new</div>
+          <div class="featured">featured</div>
+        </div>
+          <h4 class="job-listing__title">job title</h4>
+          <div>
+            <p class="job-listing__post-time">when posted</p>
+            <p class="job-listing__type">full time</p>
+            <p class="job-listing__location">LA</p>
+          </div>
+          <div class="job-listing__skills">
+            <ul class="job-listing__skills-list">
+              <li class="job-listing__skill">html</li>
+            </ul>
+          </div>
+        </li> -->
+      </ul>
+
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">nroode</a>.
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
+
+<!-- 
+- Role: Frontend, Backend, Fullstack
+- Level: Junior, Midweight, Senior
+- Languages: Python, Ruby, JavaScript, HTML, CSS
+- Tools: React, Sass, Vue, Django, RoR (Ruby on Rails) -->

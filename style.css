@@ -1,0 +1,118 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.page-top {
+    background-color: hsl(180, 29%, 50%);
+    min-height: 100px;
+}
+
+.page-bottom {
+    background-color: hsl(180, 52%, 96%);
+    padding: 100px;
+}
+
+.filter-list {
+    margin-bottom: 50px;
+}
+
+.job-listings-container {
+    list-style-type: none;
+}
+
+.job-listing {
+    background-color: white;
+    min-height: 100px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border-left: 4px solid rgb(16, 136, 136);
+    padding: 15px 40px 15px 0px;
+    box-shadow: 1px 3px 15px  rgb(170, 198, 198);
+}
+
+.job-listing__company {
+    display: inline-block;
+}
+
+.new {
+    display: inline-block;
+    text-transform: uppercase;
+    border-radius: 20px;
+    background-color: rgb(16, 136, 136);
+    padding: 2px 10px;
+    color: white;
+}
+
+.featured {
+    display: inline-block;
+    text-transform: uppercase;
+    border-radius: 20px;
+    background-color: rgb(14, 94, 94);
+    padding: 2px 10px;
+    color: white;
+}
+
+.job-listing__post-time,
+.job-listing__location,
+.job-listing__type {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.job-listing__skill {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 10px;
+    background-color:  rgba(126, 252, 252, 0.377);
+    border-radius: 3px;
+    color: rgb(16, 136, 136);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+form input {
+    display: inline-block;
+}
+
+.filter-list button {
+    width: 90%;
+    border-radius: 20px;
+    padding: 5px 10px;
+    border: 1px solid grey;
+}
+
+.attribution a,
+.attribution {
+    font-size: 10px;
+    color: grey;
+}
+
+@media(min-width: 768px) {
+    .job-listing {
+        display: grid;
+        grid-template-columns: 150px .7fr 1fr;
+        align-items: center;
+    }
+
+    .job-listing__skills {
+        justify-self: end;
+    }
+
+    .logo {
+        justify-self: center;
+    }
+
+    .filter-list {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .filter-title {
+        grid-column: 1 / -1;
+    }
+}
