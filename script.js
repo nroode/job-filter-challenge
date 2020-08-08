@@ -154,14 +154,14 @@ var jobData = [
 var filters = document.querySelectorAll(".filter");
 var jobListingsList = document.querySelector(".job-listings-container");
 const appliedFilters = document.querySelector(".filters-applied");
-const clearFilterBtn = document.querySelector(".clear-filter-btn");
-
+const clearAllFilterBtn = document.querySelector(".clear-all-filter-btn");
+const clearFilterBtn = document.querySelector(".close-btn");
 
 //render filtered data
 const renderFullJobList = (job) => {
-
-  let jobUI = 
-  `<li class="job-listing ${job.featured ? 'featured-listing' : ""}">
+  let jobUI = `<li class="job-listing ${
+    job.featured ? "featured-listing" : ""
+  }">
   <img src="${job.logo}" alt="company logo" class="logo" />
   <div>
   <div>
@@ -194,14 +194,10 @@ const renderFullJobList = (job) => {
   </li>`;
 
   jobListingsList.insertAdjacentHTML("beforeend", jobUI);
-
 };
 
-
 const renderFilterUI = (filter) => {
-  
-  let filterUI = 
-  `<li>
+  let filterUI = `<li class="filter-tag-container">
     <div class="filter-tag"> ${filter} </div>
     <div class="close-btn">
       <img src="./images/icon-remove.svg">
@@ -210,7 +206,6 @@ const renderFilterUI = (filter) => {
   `;
 
   appliedFilters.insertAdjacentHTML("beforeend", filterUI);
-
 };
 
 //filter the data
@@ -225,17 +220,25 @@ const clearAllFilters = () => {
   });
   console.log(filters.checked);
 
-  jobListingsList.innerHTML = '';
+  jobListingsList.innerHTML = "";
   jobData.map(renderFullJobList);
 
-  appliedFilters.innerHTML = '';
-}
+  appliedFilters.innerHTML = "";
+};
 
+const clearFilter = (e) => {
+  if (e.target.matches(".close-btn")) {
+    var closeVal = e.target.previousElementSibling.innerHTML.trim();
+    filters.forEach((item) => {
+      if (item.value === closeVal) {
+        item.checked = false;
+      }
+    });
+  }
+  filterData();
+};
 
-const filterData = (e) => {
-  console.log(e.target.dataset.filterType);
-  // console.log(e.target.dataset.filterType === 'role' ? console.log('yes') : console.log('no'));
-
+const filterData = () => {
   var checkedFilters = [];
 
   filters.forEach((item) => {
@@ -244,10 +247,7 @@ const filterData = (e) => {
 
   console.log(checkedFilters);
 
-  // let filteredList = jobData.filter( job => job.role === e.target.value)
-
   var result = jobData.filter((jobObj) => {
-
     // var languageSkill = jobObj.languages.forEach(lang => {
     //   checkedFilters.indexOf(lang) > -1;
     // })
@@ -257,37 +257,37 @@ const filterData = (e) => {
     //    jobObj.languages.indexOf(filter) > -1;
     // }))
 
-    checkedFilters.some(filt => jobObj.languages.includes(filt))
+    checkedFilters.some((filt) => jobObj.languages.includes(filt));
 
     if (checkedFilters.indexOf(jobObj.role) > -1) {
       return true;
     } else if (checkedFilters.indexOf(jobObj.level) > -1) {
       return true;
-    } else if (checkedFilters.some(filt => jobObj.languages.includes(filt))) {
+    } else if (checkedFilters.some((filt) => jobObj.languages.includes(filt))) {
       return true;
-    } else if (checkedFilters.some(tool => jobObj.tools.includes(tool))) {
+    } else if (checkedFilters.some((tool) => jobObj.tools.includes(tool))) {
       return true;
     }
-    
   });
 
   console.log(result);
 
   //clear current list before rendering new one
-  jobListingsList.innerHTML = '';
-  result.length > 0 ? result.map(renderFullJobList) : jobData.map(renderFullJobList);
+  jobListingsList.innerHTML = "";
+  result.length > 0
+    ? result.map(renderFullJobList)
+    : jobData.map(renderFullJobList);
 
-  appliedFilters.innerHTML = '';
+  appliedFilters.innerHTML = "";
   checkedFilters.map(renderFilterUI);
 };
 
 filters.forEach((filter) => filter.addEventListener("click", filterData));
 jobData.map(renderFullJobList);
 
-clearFilterBtn.addEventListener("click", clearAllFilters);
+clearAllFilterBtn.addEventListener("click", clearAllFilters);
+appliedFilters.addEventListener("click", clearFilter);
 
 //TO-do
 //clicking X removes that filter
 // clear all button removes all filters and unchecks all inputs
-
-
