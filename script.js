@@ -172,7 +172,9 @@ const renderFullJobList = (job) => {
   <h4 class="job-listing__title">${job.position}</h4>
   <div>
     <p class="job-listing__post-time">${job.postedAt}</p>
+    <span class="dot">&middot;</span>
     <p class="job-listing__type">${job.contract}</p>
+    <span class="dot">&middot;</span>
     <p class="job-listing__location">${job.location}</p>
   </div>
   </div>
@@ -195,11 +197,16 @@ const renderFullJobList = (job) => {
 };
 
 
-
 const renderFilterUI = (filter) => {
   
   let filterUI = 
-  `<li><div class="filter-tag"> ${filter} </div><div class="close-btn"><img src="./images/icon-remove.svg"></div></li>`;
+  `<li>
+    <div class="filter-tag"> ${filter} </div>
+    <div class="close-btn">
+      <img src="./images/icon-remove.svg">
+    </div>
+  </li>
+  `;
 
   appliedFilters.insertAdjacentHTML("beforeend", filterUI);
 
@@ -218,7 +225,7 @@ const filterData = (e) => {
   console.log(e.target.dataset.filterType);
   // console.log(e.target.dataset.filterType === 'role' ? console.log('yes') : console.log('no'));
 
-  let checkedFilters = [];
+  var checkedFilters = [];
 
   filters.forEach((item) => {
     item.checked ? checkedFilters.push(item.value) : "";
@@ -229,7 +236,32 @@ const filterData = (e) => {
   // let filteredList = jobData.filter( job => job.role === e.target.value)
 
   var result = jobData.filter((jobObj) => {
-    return checkedFilters.indexOf(jobObj.role) > -1;
+
+    // var languageSkill = jobObj.languages.forEach(lang => {
+    //   checkedFilters.indexOf(lang) > -1;
+    // })
+    // console.log(languageSkill)
+
+    // console.log(checkedFilters.forEach(filter => {
+    //    jobObj.languages.indexOf(filter) > -1;
+    // }))
+
+
+    checkedFilters.some(filt => jobObj.languages.includes(filt))
+
+
+    if (checkedFilters.indexOf(jobObj.role) > -1) {
+      return true;
+    } else if (checkedFilters.indexOf(jobObj.level) > -1) {
+      return true;
+    } else if (checkedFilters.some(filt => jobObj.languages.includes(filt))) {
+      return true;
+    } else if (checkedFilters.some(tool => jobObj.tools.includes(tool))) {
+      return true;
+    }
+    
+    
+
   });
 
   console.log(result);
@@ -244,7 +276,10 @@ const filterData = (e) => {
 
 filters.forEach((filter) => filter.addEventListener("click", filterData));
 jobData.map(renderFullJobList);
+
+
 //TO-do
-//every time click - list needs to reset 
+//clicking X removes that filter
+// clear all button removes all filters and unchecks all inputs
 
 

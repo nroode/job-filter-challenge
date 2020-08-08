@@ -35,8 +35,16 @@ body {
     box-shadow: 1px 3px 15px  rgba(170, 198, 198, 0.568);
 }
 
+.job-listing__title {
+    color: hsl(180, 14%, 20%);padding: 10px 0px;
+}
+
 .job-listing__company {
     display: inline-block;
+    font-size: 12px;
+    color: rgb(16, 136, 136);
+    font-weight: 700;
+    margin-right: 10px;
 }
 
 .new {
@@ -44,24 +52,39 @@ body {
     text-transform: uppercase;
     border-radius: 20px;
     background-color: rgb(16, 136, 136);
-    padding: 2px 10px;
+    padding: 4px 10px 2px;
     color: white;
+    font-size: 10px;
+
 }
 
 .featured {
     display: inline-block;
     text-transform: uppercase;
     border-radius: 20px;
-    background-color: rgb(14, 94, 94);
-    padding: 2px 10px;
+    background-color: hsl(180, 14%, 20%);
+    padding: 4px 10px 2px;
     color: white;
+    font-size: 10px;
 }
 
 .job-listing__post-time,
 .job-listing__location,
 .job-listing__type {
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 8px;
+    color: hsl(180, 8%, 52%);
+    font-size: 12px;
+}
+
+.dot {
+    color: hsl(180, 8%, 52%);
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+.job-listing__skills-list {
+    text-align: right;
 }
 
 .job-listing__skill {
@@ -78,6 +101,7 @@ body {
 .filters-applied {
     list-style-type: none;
     padding: 20px;
+    
 }
 
 .filters-applied li {
@@ -86,13 +110,13 @@ body {
     display: inline-block;
     border-radius: 5px;
     overflow: hidden;
+    font-size: 12px;
 }
 
 .filter-tag {
     display: inline-block;
     border-radius: 3px;
     color: rgb(16, 136, 136);
-    font-size: 14px;
     font-weight: 700;
     padding: 5px 10px;
 }
@@ -102,7 +126,7 @@ body {
     display: inline-block;
     color: hsl(180, 31%, 95%);
     background-color: rgb(16, 136, 136);
-    padding: 7px 10px;
+    padding: 8px 10px 5px;
 }
 
 form input {
