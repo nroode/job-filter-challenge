@@ -30,9 +30,12 @@ body {
     min-height: 100px;
     margin-bottom: 20px;
     border-radius: 5px;
-    border-left: 4px solid rgb(16, 136, 136);
     padding: 15px 40px 15px 0px;
     box-shadow: 1px 3px 15px  rgba(170, 198, 198, 0.568);
+}
+
+.job-listing.featured-listing {
+    border-left: 4px solid rgb(16, 136, 136);
 }
 
 .job-listing__title {
@@ -55,7 +58,6 @@ body {
     padding: 4px 10px 2px;
     color: white;
     font-size: 10px;
-
 }
 
 .featured {
@@ -98,6 +100,18 @@ body {
     font-weight: 700;
 }
 
+.filter-bar-container {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    align-items: center;
+    min-height: 50px;
+    padding: 15px 20px;
+    box-shadow: 1px 3px 15px  rgba(170, 198, 198, 0.568);
+    border-radius: 5px;
+    background-color: white;
+    font-size: 12px;
+}
+
 .filters-applied {
     list-style-type: none;
     padding: 20px;
@@ -106,11 +120,11 @@ body {
 
 .filters-applied li {
     margin: 5px;
-    background-color:  hsl(180, 31%, 95%);
     display: inline-block;
+    font-size: 12px;
+    background-color:  hsl(180, 31%, 95%);
     border-radius: 5px;
     overflow: hidden;
-    font-size: 12px;
 }
 
 .filter-tag {
@@ -129,28 +143,28 @@ body {
     padding: 8px 10px 5px;
 }
 
+.clear-filter-btn {
+    color: hsl(180, 8%, 52%);
+}
+
+.clear-filter-btn:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 form input {
     display: inline-block;
 }
 
-.filters-applied {
-    background-color: white;
-    height: 50px;
+/* .filters-applied {
+
+    min-height: 50px;
     padding: 15px 40px 15px 0px;
     box-shadow: 1px 3px 15px  rgba(170, 198, 198, 0.568);
     border-radius: 5px;
-}
-
-/* .filter-tag {
-
+    background-color: white;
 } */
 
-.filter-list button {
-    width: 90%;
-    border-radius: 20px;
-    padding: 5px 10px;
-    border: 1px solid grey;
-}
 
 .attribution a,
 .attribution {
@@ -175,7 +189,7 @@ form input {
 
     .filter-list {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 
     .filter-title {

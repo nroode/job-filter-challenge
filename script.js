@@ -154,13 +154,14 @@ var jobData = [
 var filters = document.querySelectorAll(".filter");
 var jobListingsList = document.querySelector(".job-listings-container");
 const appliedFilters = document.querySelector(".filters-applied");
+const clearFilterBtn = document.querySelector(".clear-filter-btn");
 
 
 //render filtered data
 const renderFullJobList = (job) => {
 
   let jobUI = 
-  `<li class="job-listing">
+  `<li class="job-listing ${job.featured ? 'featured-listing' : ""}">
   <img src="${job.logo}" alt="company logo" class="logo" />
   <div>
   <div>
@@ -218,7 +219,17 @@ const renderFilterUI = (filter) => {
 
 //check which items are checked
 
+const clearAllFilters = () => {
+  filters.forEach((item) => {
+    item.checked = false;
+  });
+  console.log(filters.checked);
 
+  jobListingsList.innerHTML = '';
+  jobData.map(renderFullJobList);
+
+  appliedFilters.innerHTML = '';
+}
 
 
 const filterData = (e) => {
@@ -246,9 +257,7 @@ const filterData = (e) => {
     //    jobObj.languages.indexOf(filter) > -1;
     // }))
 
-
     checkedFilters.some(filt => jobObj.languages.includes(filt))
-
 
     if (checkedFilters.indexOf(jobObj.role) > -1) {
       return true;
@@ -260,8 +269,6 @@ const filterData = (e) => {
       return true;
     }
     
-    
-
   });
 
   console.log(result);
@@ -277,6 +284,7 @@ const filterData = (e) => {
 filters.forEach((filter) => filter.addEventListener("click", filterData));
 jobData.map(renderFullJobList);
 
+clearFilterBtn.addEventListener("click", clearAllFilters);
 
 //TO-do
 //clicking X removes that filter

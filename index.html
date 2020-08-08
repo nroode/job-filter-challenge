@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
-    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./style.css" />
     <link
       rel="icon"
@@ -19,19 +22,19 @@
   <body>
     <div class="page-top"></div>
     <div class="page-bottom">
-      <ul class="filters-applied"></ul>
+      <div class="filter-bar-container">
+        <ul class="filters-applied"></ul>
+        <div class="clear-filter-btn">Clear</div>
+      </div>
       <div class="filter-list">
         <h2 class="filter-title">Filter Jobs</h2>
         <div>
-          <button>All Jobs</button>
-        </div>
-        <div>
-          <button>Role</button>
+          <div>Role</div>
           <form>
             <div>
               <input
-              class="filter"
-              data-filter-type="role"
+                class="filter"
+                data-filter-type="role"
                 type="checkbox"
                 id="Frontend"
                 name="Frontend"
@@ -40,29 +43,47 @@
               Frontend
             </div>
             <div>
-              <input class="filter" data-filter-type="role" type="checkbox" id="Backend" name="Backend" value="Backend"
+              <input
+                class="filter"
+                data-filter-type="role"
+                type="checkbox"
+                id="Backend"
+                name="Backend"
+                value="Backend"
               />
               Backend
             </div>
             <div>
               <input
-              class="filter" data-filter-type="role" type="checkbox" id="Fullstack" name="Fullstack" value="Fullstack"
+                class="filter"
+                data-filter-type="role"
+                type="checkbox"
+                id="Fullstack"
+                name="Fullstack"
+                value="Fullstack"
               />
               Fullstack
             </div>
           </form>
         </div>
         <div>
-          <button>Level</button>
+          <div>Level</div>
           <form>
             <div>
-              <input class="filter" data-filter-type="level" type="checkbox" id="Junior" name="Junior" value="Junior" />
+              <input
+                class="filter"
+                data-filter-type="level"
+                type="checkbox"
+                id="Junior"
+                name="Junior"
+                value="Junior"
+              />
               Junior
             </div>
             <div>
               <input
-              class="filter"
-              data-filter-type="level"
+                class="filter"
+                data-filter-type="level"
                 type="checkbox"
                 id="Midweight"
                 name="Midweight"
@@ -71,25 +92,47 @@
               Midweight
             </div>
             <div>
-              <input class="filter" data-filter-type="level" type="checkbox" id="Senior" name="Senior" value="Senior" />
+              <input
+                class="filter"
+                data-filter-type="level"
+                type="checkbox"
+                id="Senior"
+                name="Senior"
+                value="Senior"
+              />
               Senior
             </div>
           </form>
         </div>
         <div>
-          <button>Languages</button>
+          <div>Languages</div>
           <form>
             <div>
-              <input class="filter" data-filter-type="Languages" type="checkbox" id="Python" name="Python" value="Python" />
+              <input
+                class="filter"
+                data-filter-type="Languages"
+                type="checkbox"
+                id="Python"
+                name="Python"
+                value="Python"
+              />
               Python
             </div>
             <div>
-              <input class="filter" data-filter-type="Languages" type="checkbox" id="Ruby" name="Ruby" value="Ruby" /> Ruby
+              <input
+                class="filter"
+                data-filter-type="Languages"
+                type="checkbox"
+                id="Ruby"
+                name="Ruby"
+                value="Ruby"
+              />
+              Ruby
             </div>
             <div>
               <input
-              class="filter"
-              data-filter-type="Languages"
+                class="filter"
+                data-filter-type="Languages"
                 type="checkbox"
                 id="JavaScript"
                 name="JavaScript"
@@ -98,30 +141,69 @@
               JavaScript
             </div>
             <div>
-              <input class="filter" data-filter-type="Languages" type="checkbox" id="HTML" name="HTML" value="HTML" /> HTML
+              <input
+                class="filter"
+                data-filter-type="Languages"
+                type="checkbox"
+                id="HTML"
+                name="HTML"
+                value="HTML"
+              />
+              HTML
             </div>
             <div>
-              <input class="filter" data-filter-type="Languages" type="checkbox" id="CSS" name="CSS" value="CSS" /> CSS
+              <input
+                class="filter"
+                data-filter-type="Languages"
+                type="checkbox"
+                id="CSS"
+                name="CSS"
+                value="CSS"
+              />
+              CSS
             </div>
           </form>
         </div>
         <div>
-          <button>Tools</button>
+          <div>Tools</div>
           <form>
             <div>
-              <input class="filter" data-filter-type="Tools" type="checkbox" id="React" name="React" value="React" />
+              <input
+                class="filter"
+                data-filter-type="Tools"
+                type="checkbox"
+                id="React"
+                name="React"
+                value="React"
+              />
               React
             </div>
             <div>
-              <input class="filter" data-filter-type="Tools" type="checkbox" id="Sass" name="Sass" value="Sass" /> Sass
-            </div>
-            <div>
-              <input class="filter" data-filter-type="Tools" type="checkbox" id="Vue" name="Vue" value="Vue" /> Vue
+              <input
+                class="filter"
+                data-filter-type="Tools"
+                type="checkbox"
+                id="Sass"
+                name="Sass"
+                value="Sass"
+              />
+              Sass
             </div>
             <div>
               <input
-              class="filter"
-              data-filter-type="Tools"
+                class="filter"
+                data-filter-type="Tools"
+                type="checkbox"
+                id="Vue"
+                name="Vue"
+                value="Vue"
+              />
+              Vue
+            </div>
+            <div>
+              <input
+                class="filter"
+                data-filter-type="Tools"
                 type="checkbox"
                 id="vehicle1"
                 name="vehicle1"
@@ -130,8 +212,15 @@
               Django
             </div>
             <div>
-              <input class="filter" data-filter-type="Tools" type="checkbox" id="RoR" name="RoR" value="RoR" /> RoR
-              (Ruby on Rails)
+              <input
+                class="filter"
+                data-filter-type="Tools"
+                type="checkbox"
+                id="RoR"
+                name="RoR"
+                value="RoR"
+              />
+              RoR (Ruby on Rails)
             </div>
           </form>
         </div>
