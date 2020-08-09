@@ -11,16 +11,17 @@ body {
 }
 
 .page-top {
-    background-color: hsl(180, 29%, 50%);
     min-height: 100px;
-    
+    background: url('./images/bg-header-desktop.svg'),
+                hsl(180, 29%, 50%);
+    background-size: cover;  
 }
 
 .page-bottom {
-
-    padding: 100px;
     height: 100%;
-    
+    max-width: 1100px;
+    margin: 100px auto;
+    padding: 0px 30px;
 }
 
 .filter-list {
@@ -36,6 +37,7 @@ body {
     position: absolute;
     right: 0px;
     box-sizing: border-box;
+    z-index: 100;
 }
 
 .filter-list form div {
@@ -126,7 +128,7 @@ body {
 
 .job-listing__skill {
     display: inline-block;
-    margin: 5px;
+    margin: 5px 10px 5px 0px;
     padding: 7px 10px 5px;
     background-color:  hsl(180, 31%, 95%);
     border-radius: 3px;
@@ -230,10 +232,40 @@ form input {
     color: grey;
 }
 
+@media(max-width: 767px) {
+    .page-top {
+        min-height: 140px;
+        background: url('./images/bg-header-mobile.svg'),
+                    hsl(180, 29%, 50%);  
+    }
+
+    .job-listing {
+        position: relative;
+        padding: 35px 15px 15px;
+        margin-bottom: 40px;
+    }
+
+    .job-listing img {
+        max-width: 50px;
+        position: absolute;
+        top: -25px;
+    }
+
+    .job-listing-detail__container {
+        border-bottom: 1px solid hsl(180, 8%, 52%);
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+
+    .job-listing__skills-list {
+        text-align: left;
+    }
+}
+
 @media(min-width: 768px) {
     .job-listing {
         display: grid;
-        grid-template-columns: 150px .7fr 1fr;
+        grid-template-columns: 150px max-content 1fr;
         align-items: center;
     }
 
@@ -252,7 +284,8 @@ form input {
     .filter-bar-container {
         position: absolute;
         top: 50px;
-        width: calc(100% - 200px);
+        width: calc(100% - 60px);
+        max-width: 1100px;
         box-sizing: border-box;
     }
 }

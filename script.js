@@ -174,7 +174,7 @@ const renderFullJobList = (job) => {
   </div>
 
   <h4 class="job-listing__title">${job.position}</h4>
-  <div>
+  <div class="job-listing-detail__container">
     <p class="job-listing__post-time">${job.postedAt}</p>
     <span class="dot">&middot;</span>
     <p class="job-listing__type">${job.contract}</p>
