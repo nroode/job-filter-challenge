@@ -227,14 +227,14 @@ const clearAllFilters = () => {
 };
 
 const clearFilter = (e) => {
-  if (e.target.matches(".close-btn")) {
-    var closeVal = e.target.previousElementSibling.innerHTML.trim();
-    filters.forEach((item) => {
-      if (item.value === closeVal) {
-        item.checked = false;
-      }
-    });
-  }
+  var closeButton = e.target.closest(".close-btn");
+  var closeVal = closeButton.previousElementSibling.innerHTML.trim();
+  filters.forEach((item) => {
+    if (item.value === closeVal) {
+      item.checked = false;
+    }
+  });
+
   filterData();
 };
 
@@ -248,14 +248,6 @@ const filterData = () => {
   console.log(checkedFilters);
 
   var result = jobData.filter((jobObj) => {
-    // var languageSkill = jobObj.languages.forEach(lang => {
-    //   checkedFilters.indexOf(lang) > -1;
-    // })
-    // console.log(languageSkill)
-
-    // console.log(checkedFilters.forEach(filter => {
-    //    jobObj.languages.indexOf(filter) > -1;
-    // }))
 
     checkedFilters.some((filt) => jobObj.languages.includes(filt));
 
