@@ -153,6 +153,7 @@ var jobData = [
 
 var filters = document.querySelectorAll(".filter");
 var jobListingsList = document.querySelector(".job-listings-container");
+const filterBarContainer = document.querySelector(".filter-bar-container");
 const appliedFilters = document.querySelector(".filters-applied");
 const clearAllFilterBtn = document.querySelector(".clear-all-filter-btn");
 const clearFilterBtn = document.querySelector(".close-btn");
@@ -224,6 +225,8 @@ const clearAllFilters = () => {
   jobData.map(renderFullJobList);
 
   appliedFilters.innerHTML = "";
+
+  filterBarContainer.style.display = "none";
 };
 
 const clearFilter = (e) => {
@@ -239,11 +242,14 @@ const clearFilter = (e) => {
 };
 
 const filterData = () => {
+
   var checkedFilters = [];
 
   filters.forEach((item) => {
     item.checked ? checkedFilters.push(item.value) : "";
   });
+
+  checkedFilters.length > 0 ? filterBarContainer.style.display = 'grid' : filterBarContainer.style.display = 'none';
 
   console.log(checkedFilters);
 
