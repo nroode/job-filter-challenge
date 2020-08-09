@@ -157,6 +157,8 @@ const filterBarContainer = document.querySelector(".filter-bar-container");
 const appliedFilters = document.querySelector(".filters-applied");
 const clearAllFilterBtn = document.querySelector(".clear-all-filter-btn");
 const clearFilterBtn = document.querySelector(".close-btn");
+const filterBtn = document.querySelector(".filter-title");
+const filterList = document.querySelector(".filter-list");
 
 //render filtered data
 const renderFullJobList = (job) => {
@@ -219,7 +221,6 @@ const clearAllFilters = () => {
   filters.forEach((item) => {
     item.checked = false;
   });
-  console.log(filters.checked);
 
   jobListingsList.innerHTML = "";
   jobData.map(renderFullJobList);
@@ -280,11 +281,20 @@ const filterData = () => {
   checkedFilters.map(renderFilterUI);
 };
 
+let filterListIsOpen = false;
+
+const toggleFilterList = () => {
+  filterListIsOpen = !filterListIsOpen;
+  filterListIsOpen ? filterList.style.display = "block" : filterList.style.display = "none";
+  filterListIsOpen ? filterBtn.innerHTML = "Filter By <i class='fas fa-chevron-up'></i>" : filterBtn.innerHTML = "Filter By <i class='fas fa-chevron-down'></i>"
+}
+
 filters.forEach((filter) => filter.addEventListener("click", filterData));
 jobData.map(renderFullJobList);
 
 clearAllFilterBtn.addEventListener("click", clearAllFilters);
 appliedFilters.addEventListener("click", clearFilter);
+filterBtn.addEventListener("click", toggleFilterList)
 
 //TO-do
 //clicking X removes that filter

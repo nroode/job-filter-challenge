@@ -6,16 +6,21 @@
 body {
     font-family: 'Spartan', sans-serif;
     position: relative;
+    height: 100%;
+    background-color: hsl(180, 52%, 96%);
 }
 
 .page-top {
     background-color: hsl(180, 29%, 50%);
     min-height: 100px;
+    
 }
 
 .page-bottom {
-    background-color: hsl(180, 52%, 96%);
+
     padding: 100px;
+    height: 100%;
+    
 }
 
 .filter-list {
@@ -26,11 +31,20 @@ body {
     padding: 30px;
     box-shadow: 1px 3px 15px  rgba(170, 198, 198, 0.568);
     border-radius: 5px;
+    display: none;
+    width: 250px;
+    position: absolute;
+    right: 0px;
+    box-sizing: border-box;
 }
 
 .filter-list form div {
     margin-bottom: 5px;
     font-size: 14px;
+}
+
+.filter-list .form-wrapper:not(:last-child) {
+    margin-bottom: 15px;
 }
 
 .filter-category {
@@ -43,6 +57,7 @@ body {
 
 .job-listings-container {
     list-style-type: none;
+    margin-top: 20px;
 }
 
 .job-listing {
@@ -122,18 +137,27 @@ body {
 
 .filter-container {
     text-align: right;
+    position: relative;
 }
 
 .filter-title {
     background-color: rgb(16, 136, 136);
     color: white;
-    min-width: 200px;
+    min-width: 170px;
     border: none;
     border-radius: 5px;
-    padding: 5px 10px 3px;
-    font-size: 18px;
+    padding: 8px 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     box-shadow: 1px 3px 15px  rgba(170, 198, 198, 0.568);
+    outline: none;
+    display: grid;
+    grid-template-columns: 1fr 30px;
+    margin-right: 0px;
+    margin-left: auto;
 }
+
 
 .filter-bar-container {
     display: none;
@@ -219,11 +243,6 @@ form input {
 
     .logo {
         justify-self: center;
-    }
-
-    .filter-list {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
     }
 
     .filter-title {
