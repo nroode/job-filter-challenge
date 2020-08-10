@@ -211,11 +211,14 @@ const renderFilterUI = (filter) => {
   appliedFilters.insertAdjacentHTML("beforeend", filterUI);
 };
 
-//filter the data
-//if role is frontend, return a new array where jobData.role === 'Frontend';
-//if Frontend checked= true,
 
-//check which items are checked
+let filterListIsOpen = false;
+
+const toggleFilterList = () => {
+  filterListIsOpen = !filterListIsOpen;
+  filterListIsOpen ? filterList.style.display = "block" : filterList.style.display = "none";
+  filterListIsOpen ? filterBtn.innerHTML = "Filter By <i class='fas fa-chevron-up'></i>" : filterBtn.innerHTML = "Filter By <i class='fas fa-chevron-down'></i>"
+}
 
 const clearAllFilters = () => {
   filters.forEach((item) => {
@@ -252,8 +255,6 @@ const filterData = () => {
 
   checkedFilters.length > 0 ? filterBarContainer.style.display = 'grid' : filterBarContainer.style.display = 'none';
 
-  console.log(checkedFilters);
-
   var result = jobData.filter((jobObj) => {
 
     checkedFilters.some((filt) => jobObj.languages.includes(filt));
@@ -269,8 +270,6 @@ const filterData = () => {
     }
   });
 
-  console.log(result);
-
   //clear current list before rendering new one
   jobListingsList.innerHTML = "";
   result.length > 0
@@ -281,13 +280,7 @@ const filterData = () => {
   checkedFilters.map(renderFilterUI);
 };
 
-let filterListIsOpen = false;
 
-const toggleFilterList = () => {
-  filterListIsOpen = !filterListIsOpen;
-  filterListIsOpen ? filterList.style.display = "block" : filterList.style.display = "none";
-  filterListIsOpen ? filterBtn.innerHTML = "Filter By <i class='fas fa-chevron-up'></i>" : filterBtn.innerHTML = "Filter By <i class='fas fa-chevron-down'></i>"
-}
 
 filters.forEach((filter) => filter.addEventListener("click", filterData));
 jobData.map(renderFullJobList);
@@ -296,6 +289,4 @@ clearAllFilterBtn.addEventListener("click", clearAllFilters);
 appliedFilters.addEventListener("click", clearFilter);
 filterBtn.addEventListener("click", toggleFilterList)
 
-//TO-do
-//clicking X removes that filter
-// clear all button removes all filters and unchecks all inputs
+

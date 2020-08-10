@@ -290,6 +290,7 @@ form input {
 
     .job-listing__skills {
         justify-self: end;
+        margin-left: 10px;
     }
 
     .logo {
